@@ -19,7 +19,7 @@ using AlastairLundy.Extensions.System.StringExtensions;
 
 namespace CliUtilsLib;
 
-public class EscapeCharacterRemover
+public static class EscapeCharacterRemover
 {
     /// <summary>
     /// Returns a modified string array with the Escape Characters removed.
