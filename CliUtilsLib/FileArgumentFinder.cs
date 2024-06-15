@@ -26,6 +26,50 @@ namespace CliUtilsLib;
 public static class FileArgumentFinder
 {
     /// <summary>
+    /// Returns a tuple of files that appear before and after a separator in a string array;
+    /// </summary>
+    /// <param name="args">The string array to be searched.</param>
+    /// <param name="separator">The separator to look for.</param>
+    /// <returns>a tuple containing the files before and after a separator if found; returns null if no files were found in the array.</returns>
+    public static (string[] filesBeforeSeparator, string[] filesAfterSeparator)? GetFilesBeforeAndAfterSeparator(string[] args, string separator)
+    {
+        List<string> filesBefore = new List<string>();
+        List<string> filesAfter = new List<string>();
+
+        bool foundSeparator = false;
+        
+        foreach (string s in args)
+        {
+            if (s.ToLower().Equals(separator.ToLower()))
+            {
+                foundSeparator = true;
+            }
+            else
+            {
+                if (FileFinder.IsAFile(s))
+                {
+                    switch (foundSeparator)
+                    {
+                        case false:
+                            filesBefore.Add(s);
+                            break;
+                        case true:
+                            filesAfter.Add(s);
+                            break;
+                    }
+                }
+            }
+        }
+
+        if (filesBefore.Count == 0 && filesAfter.Count == 0)
+        {
+            return null;
+        }
+        
+        return (filesBefore.ToArray(), filesAfter.ToArray());
+    }
+    
+    /// <summary>
     /// A method to return any file names found within a specified string array.
     /// </summary>
     /// <param name="arguments">The string array to be checked.</param>
@@ -78,6 +122,8 @@ public static class FileArgumentFinder
         }
     }
 
+
+    
     /// <summary>
     /// A method to determine if a file name is contained within a string array.
     /// </summary>
