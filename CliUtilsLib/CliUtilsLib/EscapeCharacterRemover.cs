@@ -14,6 +14,7 @@
    limitations under the License.
  */
 
+using System.Collections.Generic;
 using AlastairLundy.Extensions.System.BoolArrayExtensions;
 using AlastairLundy.Extensions.System.StringExtensions;
 

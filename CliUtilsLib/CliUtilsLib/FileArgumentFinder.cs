@@ -15,6 +15,9 @@
  */
 
 // ReSharper disable UseIndexFromEndExpression
+
+using System.Collections.Generic;
+
 namespace CliUtilsLib;
 
 /// <summary>
