@@ -41,11 +41,11 @@ public static class EscapeCharacterRemover
     }
 
     /// <summary>
-    /// 
+    /// Attempts to remove Escape Characters from a string array.
     /// </summary>
-    /// <param name="input"></param>
-    /// <param name="output"></param>
-    /// <returns></returns>
+    /// <param name="input">The string array to be searched.</param>
+    /// <param name="output">The modified string array.</param>
+    /// <returns>true if Escape Characters were found and removed; return false if no Escape Characters were found.</returns>
     public static bool TryRemove(string[] input, out string[] output)
     {
         bool[] containsEscapeChars = new bool[input.Length];
