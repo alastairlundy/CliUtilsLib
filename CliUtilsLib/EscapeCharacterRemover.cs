@@ -27,8 +27,23 @@ public static class EscapeCharacterRemover
     /// Returns a modified string array with the Escape Characters removed.
     /// </summary>
     /// <param name="args">The string array to be modified.</param>
-    /// <returns>a modified string array with the Escape Characters removed</returns>
+    /// <returns>a modified string array with the Escape Characters removed.</returns>
     public static string[] Remove(string[] args)
+    {
+        foreach (string arg in args)
+        {
+            arg.RemoveEscapeCharacters();
+        }
+
+        return args;
+    }
+    
+    /// <summary>
+    /// Creates a new string array with the Escape Characters removed from the searched string array.
+    /// </summary>
+    /// <param name="args">The array to be searched.</param>
+    /// <returns>the new string array with the Escape Characters removed.</returns>
+    public static string[] RemoveToNew(string[] args)
     {
         string[] newArgs = new string[args.Length];
         
