@@ -18,7 +18,7 @@ using System.IO;
 
 namespace CliUtilsLib;
 
-public class FileFinder
+public static class FileFinder
 {
     /// <summary>
     /// Determines whether a string is the name of a file.
@@ -31,9 +31,13 @@ public class FileFinder
         {
             if (arg.Length > 1)
             {
-                if (arg[arg.Length - 3].Equals('.') || arg[arg.Length - 2].Equals('.'))
+                if (arg.Length - 3 >= 0 && arg.Length - 3 < arg.Length)
                 {
-                    return true;
+                    // Uses new .NET 6 and newer ^ Index
+                    if (arg[^3].Equals('.') || arg[^2].Equals('.'))
+                    {
+                        return true;
+                    }
                 }
             }
         
