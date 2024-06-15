@@ -87,17 +87,9 @@ public static class FileArgumentFinder
     {
         foreach (string arg in arguments)
         {
-            if (arg.Length > 3)
+            if (FileFinder.IsAFile(arg))
             {
-                    if (arg[arg.Length - 3].Equals('.') || arg[arg.Length - 2].Equals('.'))
-                    {
-                        return true;
-                    }
-            }
-            
-            if (arg.EndsWith(".txt") || arg.EndsWith(".rtf"))
-            {
-                return true;
+                return FileFinder.IsAFile(arg);
             }
         }
 
