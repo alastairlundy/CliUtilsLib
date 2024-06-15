@@ -14,8 +14,6 @@
    limitations under the License.
  */
 
-using System.Collections.Generic;
-
 using AlastairLundy.Extensions.System.BoolArrayExtensions;
 using AlastairLundy.Extensions.System.StringExtensions;
 
@@ -77,23 +75,16 @@ public static class EscapeCharacterRemover
             output = input;
             return false;
         }
-        
-        List<string> newInput = new List<string>();
-        
-        foreach (string s in input)
-        {
-            if (s.ContainsEscapeCharacters())
-            {
-                s.RemoveEscapeCharacters();
-                newInput.Add(s);
-            }
-            else
-            {
-                newInput.Add(s);
-            }
-        }
 
-        output = newInput.ToArray();
-        return true;
+        try
+        {
+            output = RemoveToNew(input);
+            return true;
+        }
+        catch
+        {
+            output = input;
+            return false;
+        }
     }
 }
