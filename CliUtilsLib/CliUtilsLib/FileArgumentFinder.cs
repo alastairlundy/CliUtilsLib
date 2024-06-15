@@ -56,6 +56,26 @@ public static class FileArgumentFinder
     }
 
     /// <summary>
+    /// Returns the number of files found in a string array
+    /// </summary>
+    /// <param name="args">The array to be searched.</param>
+    /// <returns>the number of files found in a string array; If none are found, 0 will be returned.</returns>
+    public static int GetNumberOfFilesFoundInArgs(string[] args)
+    {
+        string[]? argsFound = FindFileNamesInArgs(args);
+
+        if (argsFound != null)
+        {
+            return argsFound.Length;
+        }
+        // ReSharper disable once RedundantIfElseBlock
+        else
+        {
+            return 0;
+        }
+    }
+
+    /// <summary>
     /// A method to determine if a file name is contained within a string array.
     /// </summary>
     /// <param name="arguments">The string array to be searched.</param>
