@@ -6,16 +6,26 @@
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>CliUtilsLib</Title>
+        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
         <Authors>AlastairLundy</Authors>
         <Copyright>Copyright (c) Alastair Lundy 2024</Copyright>
         <RepositoryUrl>https://github.com/alastairlundy/CliUtilsLib</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
-        <Description>A C# library to assist in creating Cli programs</Description>
+        <Description>A C# .NET library to help with the creation of CLI tools and/or console applications.</Description>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="AlastairLundy.Extensions.System" Version="[4.4.0,)" />
+      <PackageReference Include="AlastairLundy.Extensions.System" Version="4.5.0" />
     </ItemGroup>
 
+    <ItemGroup>
+        <Content Include="..\..\LICENSE.txt">
+            <Link>LICENSE.txt</Link>
+            <PackagePath>LICENSE.txt</PackagePath>
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+    
 </Project>
