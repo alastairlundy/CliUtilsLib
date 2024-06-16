@@ -121,8 +121,6 @@ public static class FileArgumentFinder
             return 0;
         }
     }
-
-
     
     /// <summary>
     /// A method to determine if a file name is contained within a string array.
