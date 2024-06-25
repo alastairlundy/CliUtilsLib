@@ -12,22 +12,14 @@
         <Copyright>Copyright (c) Alastair Lundy 2024</Copyright>
         <RepositoryUrl>https://github.com/alastairlundy/CliUtilsLib</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageReleaseNotes>## Changes since 1.0.0
-
-### Additions
-* Added the  ``RemoveToNew`` method to the  ``EscapeCharacterRemover`` class - This copies the input array and modifies the copied array
-* Added the ``FileFinder`` class and ``IsFile`` method to separate out file detection logic
-* Added ``GetFilesBeforeAndAfterSeparator`` method in ``FileArgumentsFinder``
-
-### Changes
-* Optimized  ``EscapeCharacterRemover`` ``TryRemove`` method
-* Update the ``Remove`` method code so that it now functions as the xml doc comments described it</PackageReleaseNotes>
+        <PackageReleaseNotes>### Changes since 1.1.0
+* Improved reliability of ``IsAFile()`` method</PackageReleaseNotes>
         <Description>A C# .NET library to help with the creation of CLI tools and/or console applications.</Description>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <Version>1.1.0</Version>
-        <PackageVersion>1.1.0</PackageVersion>
-        <AssemblyVersion>1.1.0.0</AssemblyVersion>
-        <FileVersion>1.1.0.0</FileVersion>
+        <Version>1.2.0</Version>
+        <PackageVersion>1.2.0</PackageVersion>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+        <FileVersion>1.2.0.0</FileVersion>
     </PropertyGroup>
 
     <ItemGroup>
