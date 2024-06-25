@@ -18,6 +18,9 @@ using System.IO;
 
 namespace CliUtilsLib;
 
+/// <summary>
+/// 
+/// </summary>
 public static class FileFinder
 {
     /// <summary>
@@ -29,8 +32,21 @@ public static class FileFinder
     {
         try
         {
+            if (File.Exists(arg))
+            {
+                return true;
+            }
+            
             if (arg.Length > 1)
             {
+                if (arg.Length - 4 >= 0 && arg.Length - 4 < arg.Length)
+                {
+                    // Uses new .NET 6 and newer ^ Index
+                    if (arg[^4].Equals('.'))
+                    {
+                        return true;
+                    }
+                }
                 if (arg.Length - 3 >= 0 && arg.Length - 3 < arg.Length)
                 {
                     // Uses new .NET 6 and newer ^ Index
@@ -39,11 +55,15 @@ public static class FileFinder
                         return true;
                     }
                 }
-            }
-        
-            if (arg.EndsWith(".txt") || arg.EndsWith(".rtf"))
-            {
-                return true;
+
+                if (arg.Length - 2 >= 0 && arg.Length - 2 < arg.Length)
+                {
+                    // Uses new .NET 6 and newer ^ Index
+                    if (arg[^2].Equals('.'))
+                    {
+                        return true;
+                    }
+                }
             }
             
             return File.Exists(arg);
