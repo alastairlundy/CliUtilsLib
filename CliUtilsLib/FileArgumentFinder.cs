@@ -16,7 +16,9 @@
 
 // ReSharper disable UseIndexFromEndExpression
 
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CliUtilsLib;
 
@@ -25,6 +27,46 @@ namespace CliUtilsLib;
 /// </summary>
 public static class FileArgumentFinder
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="args"></param>
+    /// <param name="separator"></param>
+    /// <returns></returns>
+    internal static bool ContainsSeparator(IEnumerable<string> args, char separator)
+    {
+        foreach (string arg in args)
+        {
+            if (arg.Equals(separator.ToString()))
+            {
+                return true;
+            }
+
+            if (arg.Split(' ').Length > 0)
+            {
+                foreach (string s in arg.Split(' '))
+                {
+                    if (s.Equals(separator.ToString()))
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="args"></param>
+    /// <param name="separator"></param>
+    /// <returns></returns>
+    internal static bool ContainsSeparator(IEnumerable<string> args, string separator)
+    {
+        return args.Contains(separator);
+    }
     /// <summary>
     /// Returns a tuple of files that appear before and after a separator in a string array;
     /// </summary>
