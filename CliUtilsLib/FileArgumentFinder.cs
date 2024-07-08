@@ -74,9 +74,46 @@ public static class FileArgumentFinder
     /// <param name="args"></param>
     /// <param name="separator"></param>
     /// <returns></returns>
+    /// <exception cref="NullReferenceException"></exception>
+    public static (IEnumerable<string> filesBeforeSeparator, IEnumerable<string> filesAfterSeparator)? GetFilesBeforeAndAfterSeparator(
+        IEnumerable<string> args, char separator)
     {
-        return args.Contains(separator);
+        List<string> filesBefore = new List<string>();
+        List<string> filesAfter = new List<string>();
+
+        string[] enumerable = args as string[] ?? args.ToArray();
+        
+        if (!enumerable.Contains(separator.ToString()))
+        {
+            throw new NullReferenceException();
+        }
+
+        bool foundSeparator = true;
+
+        foreach (string s in enumerable)
+        {
+            if (s.Equals(separator.ToString()))
+            {
+                foundSeparator = true;
+            }
+
+            if (FileFinder.IsAFile(s))
+            {
+                switch (foundSeparator)
+                {
+                    case false:
+                        filesBefore.Add(s);
+                        break;
+                    case true:
+                        filesAfter.Add(s);
+                        break;
+                }
+            }
+        }
+
+        return (filesBefore.ToArray(), filesAfter.ToArray());
     }
+    
     /// <summary>
     /// Returns a tuple of files that appear before and after a separator in a string array;
     /// </summary>
