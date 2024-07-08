@@ -28,10 +28,10 @@ public static class FileArgumentFinder
     /// <summary>
     /// Returns a tuple of files that appear before and after a separator in a string array;
     /// </summary>
-    /// <param name="args">The string array to be searched.</param>
+    /// <param name="args">The IEnumerable of type string to be searched.</param>
     /// <param name="separator">The separator to look for.</param>
     /// <returns>a tuple containing the files before and after a separator if found; returns null if no files were found in the array.</returns>
-    public static (string[] filesBeforeSeparator, string[] filesAfterSeparator)? GetFilesBeforeAndAfterSeparator(string[] args, string separator)
+    public static (IEnumerable<string> filesBeforeSeparator, IEnumerable<string> filesAfterSeparator)? GetFilesBeforeAndAfterSeparator(IEnumerable<string> args, string separator)
     {
         List<string> filesBefore = new List<string>();
         List<string> filesAfter = new List<string>();
@@ -74,7 +74,7 @@ public static class FileArgumentFinder
     /// </summary>
     /// <param name="arguments">The string array to be checked.</param>
     /// <returns>the file(s) if one was provided in the list of arguments; returns null otherwise.</returns>
-    public static string[]? FindFileNamesInArgs(string[] arguments)
+    public static IEnumerable<string>? FindFileNamesInArgs(IEnumerable<string> arguments)
     {
         if (FoundAFileInArgs(arguments))
         {
@@ -107,13 +107,13 @@ public static class FileArgumentFinder
     /// </summary>
     /// <param name="args">The array to be searched.</param>
     /// <returns>the number of files found in a string array; If none are found, 0 will be returned.</returns>
-    public static int GetNumberOfFilesFoundInArgs(string[] args)
+    public static int GetNumberOfFilesFoundInArgs(IEnumerable<string> args)
     {
-        string[]? argsFound = FindFileNamesInArgs(args);
+        IEnumerable<string>? argsFound = FindFileNamesInArgs(args);
 
         if (argsFound != null)
         {
-            return argsFound.Length;
+            return argsFound.Count();
         }
         // ReSharper disable once RedundantIfElseBlock
         else
@@ -127,7 +127,7 @@ public static class FileArgumentFinder
     /// </summary>
     /// <param name="arguments">The string array to be searched.</param>
     /// <returns>true if a file is found within the specified string array; returns false otherwise.</returns>
-    public static bool FoundAFileInArgs(string[] arguments)
+    public static bool FoundAFileInArgs(IEnumerable<string> arguments)
     {
         foreach (string arg in arguments)
         {
