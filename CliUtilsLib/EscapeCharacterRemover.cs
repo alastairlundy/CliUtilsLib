@@ -14,6 +14,9 @@
    limitations under the License.
  */
 
+using System.Collections.Generic;
+using System.Linq;
+
 using AlastairLundy.Extensions.System.BoolArrayExtensions;
 using AlastairLundy.Extensions.System.StringExtensions;
 
@@ -26,14 +29,16 @@ public static class EscapeCharacterRemover
     /// </summary>
     /// <param name="args">The string array to be modified.</param>
     /// <returns>a modified string array with the Escape Characters removed.</returns>
-    public static string[] Remove(string[] args)
+    public static IEnumerable<string> Remove(IEnumerable<string> args)
     {
-        foreach (string arg in args)
+        string[] enumerable = args as string[] ?? args.ToArray();
+        
+        foreach (string arg in enumerable)
         {
             arg.RemoveEscapeCharacters();
         }
 
-        return args;
+        return enumerable;
     }
     
     /// <summary>
@@ -41,11 +46,13 @@ public static class EscapeCharacterRemover
     /// </summary>
     /// <param name="args">The array to be searched.</param>
     /// <returns>the new string array with the Escape Characters removed.</returns>
-    public static string[] RemoveToNew(string[] args)
+    public static IEnumerable<string> RemoveToNew(IEnumerable<string> args)
     {
-        string[] newArgs = new string[args.Length];
+        string[] enumerable = args as string[] ?? args.ToArray();
         
-        args.CopyTo(newArgs, 0);
+        string[] newArgs = new string[enumerable.Length];
+        
+        enumerable.CopyTo(newArgs, 0);
         
         foreach (string arg in newArgs)
         {
@@ -61,29 +68,31 @@ public static class EscapeCharacterRemover
     /// <param name="input">The string array to be searched.</param>
     /// <param name="output">The modified string array.</param>
     /// <returns>true if Escape Characters were found and removed; return false if no Escape Characters were found.</returns>
-    public static bool TryRemove(string[] input, out string[] output)
+    public static bool TryRemove(IEnumerable<string> input, out IEnumerable<string> output)
     {
-        bool[] containsEscapeChars = new bool[input.Length];
+        string[] enumerable = input as string[] ?? input.ToArray();
+        
+        bool[] containsEscapeChars = new bool[enumerable.Length];
 
-        for (int index = 0; index < input.Length; index++)
+        for (int index = 0; index < enumerable.Length; index++)
         {
-            containsEscapeChars[index] = input[index].ContainsEscapeCharacters();
+            containsEscapeChars[index] = enumerable[index].ContainsEscapeCharacters();
         }
 
         if (containsEscapeChars.IsAllFalse())
         {
-            output = input;
+            output = enumerable;
             return false;
         }
 
         try
         {
-            output = RemoveToNew(input);
+            output = RemoveToNew(enumerable);
             return true;
         }
         catch
         {
-            output = input;
+            output = enumerable;
             return false;
         }
     }
