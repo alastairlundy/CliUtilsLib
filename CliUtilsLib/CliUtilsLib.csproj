@@ -12,14 +12,15 @@
         <Copyright>Copyright (c) Alastair Lundy 2024</Copyright>
         <RepositoryUrl>https://github.com/alastairlundy/CliUtilsLib</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageReleaseNotes>### Changes since 1.1.0
-* Improved reliability of ``IsAFile()`` method</PackageReleaseNotes>
+        <PackageReleaseNotes>### Changes since 1.2.0
+* Use IEnumerable of type string instead of string array in methods
+* Add ``ContainsSeparator`` methods</PackageReleaseNotes>
         <Description>A C# .NET library to help with the creation of CLI tools and/or console applications.</Description>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <Version>1.2.0</Version>
-        <PackageVersion>1.2.0</PackageVersion>
-        <AssemblyVersion>1.2.0.0</AssemblyVersion>
-        <FileVersion>1.2.0.0</FileVersion>
+        <Version>1.3.0</Version>
+        <PackageVersion>1.3.0</PackageVersion>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
+        <FileVersion>1.3.0.0</FileVersion>
     </PropertyGroup>
 
     <ItemGroup>
