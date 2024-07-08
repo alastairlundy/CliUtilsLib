@@ -33,11 +33,22 @@ public static class FileArgumentFinder
     /// <param name="args"></param>
     /// <param name="separator"></param>
     /// <returns></returns>
-    internal static bool ContainsSeparator(IEnumerable<string> args, char separator)
+    public static bool ContainsSeparator(IEnumerable<string> args, char separator)
+    {
+        return ContainsSeparator(args, separator.ToString());
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="args"></param>
+    /// <param name="separator"></param>
+    /// <returns></returns>
+    public static bool ContainsSeparator(IEnumerable<string> args, string separator)
     {
         foreach (string arg in args)
         {
-            if (arg.Equals(separator.ToString()))
+            if (arg.Equals(separator))
             {
                 return true;
             }
@@ -46,7 +57,7 @@ public static class FileArgumentFinder
             {
                 foreach (string s in arg.Split(' '))
                 {
-                    if (s.Equals(separator.ToString()))
+                    if (s.Equals(separator))
                     {
                         return true;
                     }
@@ -56,14 +67,13 @@ public static class FileArgumentFinder
 
         return false;
     }
-
+    
     /// <summary>
     /// 
     /// </summary>
     /// <param name="args"></param>
     /// <param name="separator"></param>
     /// <returns></returns>
-    internal static bool ContainsSeparator(IEnumerable<string> args, string separator)
     {
         return args.Contains(separator);
     }
