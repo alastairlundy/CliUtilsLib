@@ -17,8 +17,8 @@
 using System.Collections.Generic;
 using System.Linq;
 
-using AlastairLundy.Extensions.System.BoolArrayExtensions;
-using AlastairLundy.Extensions.System.StringExtensions;
+using AlastairLundy.Extensions.System;
+using AlastairLundy.Extensions.System.EscapeCharacters;
 
 namespace CliUtilsLib;
 
