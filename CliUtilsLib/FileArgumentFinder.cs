@@ -165,11 +165,13 @@ public static class FileArgumentFinder
     /// <returns>the file(s) if one was provided in the list of arguments; returns null otherwise.</returns>
     public static IEnumerable<string>? FindFileNamesInArgs(IEnumerable<string> arguments)
     {
-        if (FoundAFileInArgs(arguments))
+        string[] enumerable = arguments as string[] ?? arguments.ToArray();
+        
+        if (FoundAFileInArgs(enumerable))
         {
             List<string> list = new();
             
-            foreach (string arg in arguments)
+            foreach (string arg in enumerable)
             {
                 if (arg.Length > 3)
                 {
