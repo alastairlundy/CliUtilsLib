@@ -32,9 +32,4 @@ A Security Vulnerability affecting this project should not be publicly disclosed
 2. The vulnerability has been fixed in an update to the project.
 3. The updated version of the project has been distributed and made available to all supported platforms
 4. At least 24 hours has passed since the updated version of the project has been distributed. 
-5. The affected versions of the project have been de-listed or marked as containing a security vulnerability.
-
-By Public Disclosure I mean:
-* Disclosure in a publicly accessible or publicly visible form
-* Discussion with people outside of your immediate colleagues or team
-* Leaking or anonymously communicating the details of the vulnerability to another person or other people
+5. The affected versions of the project have been de-listed or marked as containing a security vulnerability
