@@ -12,15 +12,14 @@
         <Copyright>Copyright (c) Alastair Lundy 2024</Copyright>
         <RepositoryUrl>https://github.com/alastairlundy/CliUtilsLib</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageReleaseNotes>### Changes since 1.3.0
-* Fixed an issue where xml doc comments were missing from the ``FileArgumentFinder`` class.
-* Fixed a potential issue where a possible multiple enumeration would occur in a method in the ``FileArgumentFinder`` class.</PackageReleaseNotes>
+        <PackageReleaseNotes>### Changes since 1.3.1
+* Updated floating dependency on SystemExtensions from 4.x to 5.x</PackageReleaseNotes>
         <Description>A C# .NET library to help with the creation of CLI tools and/or console applications.</Description>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <Version>1.3.0</Version>
-        <PackageVersion>1.3.1</PackageVersion>
-        <AssemblyVersion>1.3.1.0</AssemblyVersion>
-        <FileVersion>1.3.1.0</FileVersion>
+        <Version>1.4.0</Version>
+        <PackageVersion>1.4.0</PackageVersion>
+        <AssemblyVersion>1.4.0.0</AssemblyVersion>
+        <FileVersion>1.4.0.0</FileVersion>
     </PropertyGroup>
 
     <ItemGroup>
