@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-These are the currently supported versions of Cli Utils Lib.
+These are the currently supported versions of CliUtilsLib.
 
 Standard Security Support covers bug fixes and all accepted security vulnerabilities of Low, Moderate, High, or Critical severity.
 
@@ -10,10 +10,9 @@ Extended Security Support covers all accepted security vulnerabilities of Modera
 
 | Version | Standard Security Support | Extended Security Support |
 | ------- | ------------------ |----|
+| 1.5 | Until 1.6 | Until 1.6 |
 | 1.4 | Until 1.6 | Until 1.6 |
-| 1.3 | :x: | Until 1.5 |
-| 1.2 | :x: | Until 1.5 |
-| < 1.2| :x: | :x: |
+| < 1.4 | :x: | :x: |
 
 ### Security Vulnerabilities
 If you wish to report a potential security vulnerability please go to the security tab on this GitHub project and create a new Security Vulnerability report. 

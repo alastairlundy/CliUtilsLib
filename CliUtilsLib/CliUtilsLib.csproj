@@ -12,15 +12,17 @@
         <Copyright>Copyright (c) Alastair Lundy 2024</Copyright>
         <RepositoryUrl>https://github.com/alastairlundy/CliUtilsLib</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageReleaseNotes>### Changes since 1.3.1
-* Updated floating dependency on SystemExtensions from 4.x to 5.x</PackageReleaseNotes>
+        <PackageReleaseNotes>### Changes since 1.4.0
+* Deprecated ``FileFinder`` class and methods - This class will be removed in a future version. Please use IO Extensions' ``FileFinder`` class instead
+* Deprecated ``RemoveToNew`` method in ``EscapeCharacterRemover`` - This will be removed in a future version
+* Fixed an issue that would prevent escape characters from being removed when the ``Remove`` method was called.
+* Added ``ArgumentCommandFinder`` static class
 * Re-licensed code to be under the LGPLv3 (only) license</PackageReleaseNotes>
         <Description>A C# .NET library to help with the creation of CLI tools and/or console applications.</Description>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <Version>1.4.0</Version>
-        <PackageVersion>1.4.0</PackageVersion>
-        <AssemblyVersion>1.4.0.0</AssemblyVersion>
-        <FileVersion>1.4.0.0</FileVersion>
+        <PackageVersion>1.5.0</PackageVersion>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <FileVersion>1.5.0.0</FileVersion>
     </PropertyGroup>
 
     <ItemGroup>
