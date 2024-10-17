@@ -42,11 +42,11 @@
     </ItemGroup>
     
     <ItemGroup>
-      <None Update="LICENSE.txt">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Content Include="LICENSE.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
           <Link>LICENSE.txt</Link>
           <PackagePath>LICENSE.txt</PackagePath>
-      </None>
+      </Content>
     </ItemGroup>
     
 </Project>
