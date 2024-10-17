@@ -15,6 +15,7 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -25,6 +26,12 @@ namespace CliUtilsLib;
 
 public static class EscapeCharacterRemover
 {
+
+    [Obsolete("Use Remove method instead.")]
+    public static IEnumerable<string> RemoveToNew(IEnumerable<string> args)
+    {
+        return Remove(args);
+    }
     
     /// <summary>
     /// Creates a new string array with the Escape Characters removed from the searched string array.
