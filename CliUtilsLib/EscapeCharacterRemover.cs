@@ -25,29 +25,13 @@ namespace CliUtilsLib;
 
 public static class EscapeCharacterRemover
 {
-    /// <summary>
-    /// Returns a modified string array with the Escape Characters removed.
-    /// </summary>
-    /// <param name="args">The string array to be modified.</param>
-    /// <returns>a modified string array with the Escape Characters removed.</returns>
-    public static IEnumerable<string> Remove(IEnumerable<string> args)
-    {
-        string[] enumerable = args as string[] ?? args.ToArray();
-        
-        foreach (string arg in enumerable)
-        {
-            arg.RemoveEscapeCharacters();
-        }
-
-        return enumerable;
-    }
     
     /// <summary>
     /// Creates a new string array with the Escape Characters removed from the searched string array.
     /// </summary>
     /// <param name="args">The array to be searched.</param>
     /// <returns>the new string array with the Escape Characters removed.</returns>
-    public static IEnumerable<string> RemoveToNew(IEnumerable<string> args)
+    public static IEnumerable<string> Remove(IEnumerable<string> args)
     {
         string[] enumerable = args as string[] ?? args.ToArray();
         
@@ -88,7 +72,7 @@ public static class EscapeCharacterRemover
 
         try
         {
-            output = RemoveToNew(enumerable);
+            output = Remove(enumerable);
             return true;
         }
         catch
