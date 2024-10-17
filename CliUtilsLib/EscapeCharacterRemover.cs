@@ -39,9 +39,9 @@ public static class EscapeCharacterRemover
         
         enumerable.CopyTo(newArgs, 0);
         
-        foreach (string arg in newArgs)
+        for (int i = 0; i < enumerable.Length; i++)
         {
-            arg.RemoveEscapeCharacters();
+            enumerable[i] = enumerable[i].RemoveEscapeCharacters();
         }
 
         return newArgs;
