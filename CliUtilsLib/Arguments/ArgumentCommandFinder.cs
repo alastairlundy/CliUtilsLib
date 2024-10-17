@@ -19,7 +19,7 @@ using System.Linq;
 
 namespace CliUtilsLib.Arguments;
 
-public static class ArgumentFinder
+public static class ArgumentCommandFinder
 {
     /// <summary>
     /// 
