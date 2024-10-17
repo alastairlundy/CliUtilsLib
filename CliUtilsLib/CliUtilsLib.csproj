@@ -25,14 +25,6 @@
     <ItemGroup>
       <PackageReference Include="AlastairLundy.Extensions.System" Version="5.2.0" />
     </ItemGroup>
-
-    <ItemGroup>
-        <Content Include="..\LICENSE.txt">
-            <Link>LICENSE.txt</Link>
-            <PackagePath>LICENSE.txt</PackagePath>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </Content>
-    </ItemGroup>
     
     <ItemGroup>
         <Content Include="..\README.md">
