@@ -102,7 +102,10 @@ public static class FileArgumentFinder
                 foundSeparator = true;
             }
 
-            if (FileFinder.IsAFile(s))
+            AlastairLundy.Extensions.IO.Files.FileFinder
+                fileFinder = new AlastairLundy.Extensions.IO.Files.FileFinder();
+            
+            if (fileFinder.IsAFile(s))
             {
                 switch (foundSeparator)
                 {
@@ -140,7 +143,10 @@ public static class FileArgumentFinder
             }
             else
             {
-                if (FileFinder.IsAFile(s))
+                AlastairLundy.Extensions.IO.Files.FileFinder fileFinder =
+                    new AlastairLundy.Extensions.IO.Files.FileFinder();
+                
+                if (fileFinder.IsAFile(s))
                 {
                     switch (foundSeparator)
                     {
@@ -170,13 +176,15 @@ public static class FileArgumentFinder
     /// <returns>the file(s) if one was provided in the list of arguments; returns null otherwise.</returns>
     public static IEnumerable<string>? FindFileNamesInArgs(IEnumerable<string> arguments)
     {
+        AlastairLundy.Extensions.IO.Files.FileFinder fileFinder = new AlastairLundy.Extensions.IO.Files.FileFinder();
+        
         string[] enumerable = arguments as string[] ?? arguments.ToArray();
         
         if (FoundAFileInArgs(enumerable))
         {
             List<string> list = new();
             
-            foreach (string arg in enumerable)
+            foreach (string arg in enumerable.Where(x => fileFinder.IsAFile(x)))
             {
                 if (arg.Length > 3)
                 {
@@ -225,14 +233,10 @@ public static class FileArgumentFinder
     /// <returns>true if a file is found within the specified string array; returns false otherwise.</returns>
     public static bool FoundAFileInArgs(IEnumerable<string> arguments)
     {
-        foreach (string arg in arguments)
-        {
-            if (FileFinder.IsAFile(arg))
-            {
-                return FileFinder.IsAFile(arg);
-            }
-        }
+        AlastairLundy.Extensions.IO.Files.FileFinder fileFinder = new AlastairLundy.Extensions.IO.Files.FileFinder();
+        
+        bool[] argumentsBools = arguments.Select(a => fileFinder.IsAFile(a)).ToArray();
 
-        return false;
+        return argumentsBools.Any(x => x == true);
     }
 }
