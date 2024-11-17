@@ -19,8 +19,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-using AlastairLundy.Extensions.System;
-using AlastairLundy.Extensions.System.EscapeCharacters;
+using AlastairLundy.Extensions.System.Strings.EscapeCharacters;
+
+// ReSharper disable RedundantBoolCompare
 
 namespace CliUtilsLib;
 

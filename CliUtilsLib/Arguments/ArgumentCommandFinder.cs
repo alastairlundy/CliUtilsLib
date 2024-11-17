@@ -16,6 +16,7 @@
  */
 
 using System.Linq;
+// ReSharper disable RedundantIfElseBlock
 
 namespace CliUtilsLib.Arguments;
 
