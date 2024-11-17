@@ -41,17 +41,8 @@ public static class EscapeCharacterRemover
     public static IEnumerable<string> Remove(IEnumerable<string> args)
     {
         string[] enumerable = args as string[] ?? args.ToArray();
-        
-        string[] newArgs = new string[enumerable.Length];
-        
-        enumerable.CopyTo(newArgs, 0);
-        
-        for (int i = 0; i < enumerable.Length; i++)
-        {
-            enumerable[i] = enumerable[i].RemoveEscapeCharacters();
-        }
 
-        return newArgs;
+        return enumerable.Select(x => x.RemoveEscapeCharacters());
     }
 
     /// <summary>
@@ -64,14 +55,9 @@ public static class EscapeCharacterRemover
     {
         string[] enumerable = input as string[] ?? input.ToArray();
         
-        bool[] containsEscapeChars = new bool[enumerable.Length];
+        bool[] containsEscapeChars = enumerable.Select(x => x.ContainsEscapeCharacters()).ToArray();
 
-        for (int index = 0; index < enumerable.Length; index++)
-        {
-            containsEscapeChars[index] = enumerable[index].ContainsEscapeCharacters();
-        }
-
-        if (containsEscapeChars.IsAllFalse())
+        if (containsEscapeChars.All(x => x == true))
         {
             output = enumerable;
             return false;
