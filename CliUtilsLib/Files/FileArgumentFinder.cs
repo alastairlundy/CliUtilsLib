@@ -200,7 +200,7 @@ public static class FileArgumentFinder
                 }
             }
 
-            return list.ToArray();
+            return list;
         }
 
         return null;
