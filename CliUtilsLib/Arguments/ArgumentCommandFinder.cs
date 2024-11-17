@@ -30,14 +30,8 @@ public static class ArgumentCommandFinder
     /// <returns></returns>
     public static bool IsLicenseDisplayRequested(string[] arguments, bool acceptShortVersion, string licenseDisplayCommand)
     {
-        if (arguments.Contains("--license") || (acceptShortVersion && arguments.Contains("-l")) || arguments.Contains(licenseDisplayCommand))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return (arguments.Contains("--license") || (acceptShortVersion && arguments.Contains("-l")) ||
+                arguments.Contains(licenseDisplayCommand));
     }
 
     /// <summary>
@@ -48,13 +42,6 @@ public static class ArgumentCommandFinder
     /// <returns></returns>
     public static bool IsHelpMessageRequested(string[] arguments, bool acceptShortVersion)
     {
-        if (arguments.Contains("--help") || (acceptShortVersion && arguments.Contains("-h")))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return (arguments.Contains("--help") || (acceptShortVersion && arguments.Contains("-h")));
     }
 }
