@@ -20,6 +20,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+// ReSharper disable RedundantBoolCompare
 
 namespace CliUtilsLib;
 
@@ -35,6 +36,7 @@ public static class FileArgumentFinder
     /// <param name="args">The IEnumerable to be searched.</param>
     /// <param name="separator">The separator to look for.</param>
     /// <returns>true if the separator character is found in the IEnumerable; returns false otherwise.</returns>
+    [Obsolete("Use CollectionExtensions instead.")]
     public static bool ContainsSeparator(IEnumerable<string> args, char separator)
     {
         return ContainsSeparator(args, separator.ToString());
@@ -46,6 +48,7 @@ public static class FileArgumentFinder
     /// <param name="args">The IEnumerable to be searched.</param>
     /// <param name="separator">The separator to look for.</param>
     /// <returns>true if the separator character string is found in the IEnumerable; returns false otherwise.</returns>
+    [Obsolete("Use CollectionExtensions instead.")]
     public static bool ContainsSeparator(IEnumerable<string> args, string separator)
     {
         foreach (string arg in args)
