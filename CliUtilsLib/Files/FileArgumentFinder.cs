@@ -29,50 +29,6 @@ namespace CliUtilsLib;
 /// </summary>
 public static class FileArgumentFinder
 {
-    
-    /// <summary>
-    /// Check to see if an IEnumerable contains a separator character.
-    /// </summary>
-    /// <param name="args">The IEnumerable to be searched.</param>
-    /// <param name="separator">The separator to look for.</param>
-    /// <returns>true if the separator character is found in the IEnumerable; returns false otherwise.</returns>
-    [Obsolete("Use CollectionExtensions instead.")]
-    public static bool ContainsSeparator(IEnumerable<string> args, char separator)
-    {
-        return ContainsSeparator(args, separator.ToString());
-    }
-
-    /// <summary>
-    /// Check to see if an IEnumerable contains a separator character string.
-    /// </summary>
-    /// <param name="args">The IEnumerable to be searched.</param>
-    /// <param name="separator">The separator to look for.</param>
-    /// <returns>true if the separator character string is found in the IEnumerable; returns false otherwise.</returns>
-    [Obsolete("Use CollectionExtensions instead.")]
-    public static bool ContainsSeparator(IEnumerable<string> args, string separator)
-    {
-        foreach (string arg in args)
-        {
-            if (arg.Equals(separator))
-            {
-                return true;
-            }
-
-            if (arg.Split(' ').Length > 0)
-            {
-                foreach (string s in arg.Split(' '))
-                {
-                    if (s.Equals(separator))
-                    {
-                        return true;
-                    }
-                }
-            }
-        }
-
-        return false;
-    }
-    
     /// <summary>
     /// Returns a tuple of files that appear before and after a separator in a string array;
     /// </summary>
